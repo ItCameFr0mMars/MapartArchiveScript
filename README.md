@@ -7,4 +7,4 @@ For Use:
 - Choose Text
 - Choose Color
 - Choose Size
-- # DONE!
+- DONE!!!
