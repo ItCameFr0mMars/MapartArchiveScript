@@ -7,7 +7,7 @@ print("")
 print("Checking Webhook Link...")
 print("")
 try:
-    webhook = SyncWebhook.from_url("PUT WEBHOOK URL HERE")
+    webhook = SyncWebhook.from_url("https://discord.com/api/webhooks/1030259402323804170/8RuOSDEwJEiHUPtTdWVCzDN9zRv2zH8s835wn-4sIbq00OM9zieivwx9uaQB0u7q5cvH")
 except:
     print("Invalid Webhook URL")
     exit()
@@ -19,19 +19,25 @@ print("")
 # EVERYTHING WILL BREAK IF YOU DON'T FOLLOW
 def send_image(id):
     try:
-        file = discord.File(id+".png", filename=id+".png")
+        id_file = discord.File(id+"}.png", filename=id+"}.png")
     except:
-        print("The file: "+id+".png was not found, please check your filenames and your range")
-        exit()
+        print("The file: "+id+".png was not found, Dummy image being used(please check your filenames and your range)")
+        missing_file = discord.File("missing.png", filename="missing.png")
+        embed = discord.Embed(title="ID: "+id+" (EMPTY)", color=0xFE865E)
+        embed.set_image(url="attachment://missing.png")
+        webhook.send(file=missing_file, embed=embed)
     #change the letters and numbers after the "0x" to change the color
     embed = discord.Embed(title="ID: "+id, color=0xFE865E)
     embed.set_image(url="attachment://"+id+".png")
-    webhook.send(file=file, embed=embed, )
+    try:
+        webhook.send(file=id_file, embed=embed)
+    except:
+        pass
 # first number: starting id
 # second number: ending id but add 1
 # ex: For sending ids 1-9, you would set the range to 6,10
 print("Starting to send images...")
 print("")
-for i in range(6,10):
+for i in range(1001,1501):
     send_image(str(i))
 print("All done!")
