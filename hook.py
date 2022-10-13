@@ -7,7 +7,7 @@ print("")
 print("Checking Webhook Link...")
 print("")
 try:
-    webhook = SyncWebhook.from_url("https://discord.com/api/webhooks/1030259402323804170/8RuOSDEwJEiHUPtTdWVCzDN9zRv2zH8s835wn-4sIbq00OM9zieivwx9uaQB0u7q5cvH")
+    webhook = SyncWebhook.from_url("webhook goes here")
 except:
     print("Invalid Webhook URL")
     exit()
